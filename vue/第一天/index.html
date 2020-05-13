@@ -21,6 +21,8 @@
         <button @click="push" >pushItem</button>
         <button @click="update" >update</button>
         <button @click="updateObj" >updateObj</button>
+        <input type="text" v-model.lazy="msg" >
+        <h3>{{ msg }}</h3>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -34,7 +36,8 @@
                     name: "tan",
                     yu: "ayu",
                     go: "go"
-                }
+                },
+                msg: "msg---"
             },
             methods: {
                 push: function(){

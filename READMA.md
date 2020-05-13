@@ -1,8 +1,8 @@
 
 # vue 学习计划
 
-1. - [ ] vue 基础知识
-2. - [ ] vue 模板语法
+1. - [x] vue 基础知识
+2. - [ ] vue 模板语法(组件)
 3. - [ ] vue 组件
 4. - [ ] vue 过度组件
 5. - [ ] 生命周期详解
@@ -242,6 +242,64 @@ watch 监听属性：主要是针对 data 中是数据或是 路由 等进行监
 [【web前端】passive是个啥？](https://www.jianshu.com/p/46e5223086b3)
 
 按键修饰符：主要的按键，回车，tab，回退，空格，esc，上下左右
+
+8. 表单输入绑定
+
+`v-model`: 一般用于绑定表单控件
+
+`v-model` 在内部为不同的输入元素绑定不同的 property 和 事件
+
+- `text` 和 `textarea` 绑定 `value` 属性 和 `input` 事件
+- `checkbox` 和 `radio` 绑定 `checked` 属性 和 `change` 事件
+- `select` 绑定 `value` 属性 和 `change` 事件
+
+修饰符：
+
+[vue修饰符 之 .lazy .number .trim](https://blog.csdn.net/qq_36407748/article/details/80149072)
+
+- `v-model.lazy="val"`  在 失去焦点 或 按下回车 时数据更新
+- `v-model.number="val"` 将输入的值转换成 number 类型
+- `v-model.trim="val"`  会自动过滤掉输入首尾空格
+
+9. 组件基础
+
+组件的创建：
+
+使用：`Vue.component()` 创建组件
+
+```js
+// 定义一个名为 button-counter 的新组件
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+```
+
+创建的组件，data 属性必须是一个函数
+
+**父子组件通信**
+
+父 -> 子： `prop`传值：父组件搭配 `v-bind:` 设置 子组件 属性，子组件使用 `prop` 接收数据
+
+子 -> 父： 父组件使用 `@event` 来监听子组件使用 `$emit` 触发的事件，也可以使用 `Vue.eventBus()` 订阅函数
+
+**插槽 <slot>**
+
+**动态组件**
+
+```html
+<!-- 组件会在 `currentTabComponent` 改变时改变 -->
+<component v-bind:is="currentTabComponent"></component>
+```
+
+
+
+
+
 
 
 
