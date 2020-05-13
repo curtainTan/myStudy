@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in arr" >{{ item }}</li>
+        </ul>
+        <ul @click.self="self" class="red" >
+            <li v-for="item, key in obj" >{{ key }}  :  {{ item }}</li>
+        </ul>
+        <button @click="push" >pushItem</button>
+        <button @click="update" >update</button>
+        <button @click="updateObj" >updateObj</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: [ 1,2,3,4,5,6 ],
+                obj: {
+                    name: "tan",
+                    yu: "ayu",
+                    go: "go"
+                }
+            },
+            methods: {
+                push: function(){
+                    this.arr.push("aaaa")
+                },
+                update: function(){
+                    this.$set( this.arr, 2, "3456" )
+                },
+                updateObj: function(){
+                    this.obj.go = "add"
+                },
+                self: function(){
+                    console.log( "我自己---" )
+                }
+            },
+        })
+    </script>
+</body>
+</html>
+
