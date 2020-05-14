@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <component-a>
+            <template v-slot:header>
+                <h1>Here might be a page title</h1>
+            </template>
+        
+            <p>A paragraph for the main content.</p>
+            <p>And another one.</p>
+        
+            <template v-slot:footer>
+                <p>Here's some contact info</p>
+            </template>
+        </component-a>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+
+        var componentA = {
+            template:  `<div class="container">
+                            <header>
+                                <slot name="header"></slot>
+                            </header>
+                            <main>
+                                <slot></slot>
+                            </main>
+                            <footer>
+                                <slot name="footer"></slot>
+                            </footer>
+                        </div>`
+        }
+
+        var app = new Vue({
+            el: "#app",
+            components: {
+                componentA
+            }
+        })
+    </script>
+</body>
+</html>
+

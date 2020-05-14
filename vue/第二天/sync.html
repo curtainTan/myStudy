@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <component-a :msg.sync="msg" ></component-a>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+
+        var componentA = {
+            props:[ "msg" ],
+            data(){
+                return {
+                    count: 10
+                }
+            },
+            methods: {
+                sync(){
+                    this.$emit( "update:msg", this.msg + "--add" )
+                }
+            },
+            template: '<button v-on:click="sync">You clicked me {{ count }} times.--{{ msg }}</button>'
+        }
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "我是 msg---"
+            },
+            methods: {
+            },
+            components: {
+                componentA
+            }
+        })
+    </script>
+</body>
+</html>
+
