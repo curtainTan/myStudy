@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+        }
+
+        /* 列表动画 */
+        .list-complete-item {
+            transition: all 1s;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .list-complete-enter, .list-complete-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .list-complete-leave-active {
+            position: absolute;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show = !show">
+            Toggle
+        </button>
+        <transition name="fade">
+            <p v-if="show">hello</p>
+        </transition>
+        <hr>
+        <h3>加 key</h3>
+        <transition name="fade" mode="out-in"  >
+            <button v-if="docState === 'saved'" key="saved">
+                Edit
+            </button>
+            <button v-if="docState === 'edited'" key="edited">
+                Save
+            </button>
+            <button v-if="docState === 'editing'" key="editing">
+                Cancel
+            </button>
+        </transition>
+        <hr>
+        <h3>不加 key</h3>
+        <transition name="fade" >
+            <button v-if="docState === 'saved'" >
+                Edit
+            </button>
+            <button v-if="docState === 'edited'">
+                Save
+            </button>
+            <button v-if="docState === 'editing'" >
+                Cancel
+            </button>
+        </transition>
+        <button @click="changeState" > changeState </button>
+        <hr>
+        <h3>列表过渡</h3>
+        <button v-on:click="add">Add</button>
+        <button v-on:click="remove">Remove</button>
+        <button v-on:click="shuffle">random</button>
+        <transition-group name="list-complete" tag="p">
+            <span v-for="item in items" v-bind:key="item" class="list-complete-item">
+                {{ item }}
+            </span>
+        </transition-group>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                show: true,
+                docState: "saved",
+                items: [1,2,3,4,5,6,7,8,9],
+                nextNum: 10
+            },
+            methods: {
+                changeState(){
+                    switch( this.docState ){
+                        case "saved":  
+                            this.docState = "edited"
+                            break
+                        case "edited":
+                            this.docState = "editing"
+                            break
+                        case "editing":
+                            this.docState = "saved"
+                            break
+                    }
+                },
+                randomIndex: function () {
+                    return Math.floor(Math.random() * this.items.length)
+                },
+                add: function () {
+                    this.items.splice(this.randomIndex(), 0, this.nextNum++)
+                },
+                remove: function () {
+                    this.items.splice(this.randomIndex(), 1)
+                },
+                shuffle: function () {
+                    var copyList = this.items.slice().sort(() => (Math.random() - 0.5))
+                    this.items =  copyList
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
