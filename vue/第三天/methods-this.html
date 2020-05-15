@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name: "tan",
+            methods: {
+                say: () => {
+                    console.log( this )
+                },
+                mySay: function(){
+                    console.log( this )
+                }
+            }
+        }
+        // 相当于 methods.say() ，say 的 this 指向外层，即 window
+        obj.methods.say()
+        // 相当于 methods.say() ，say 的 this 指向 methods 对象
+        // 在 vue 组件中，methods 会被混入到 Vue 实例中，所以，函数内的 this 指向 Vue 实例，
+        // 而使用箭头函数，this 会被指向实例的外层，会指向 window
+        obj.methods.mySay()
+    </script>
+</body>
+</html>
