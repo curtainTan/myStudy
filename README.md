@@ -7,7 +7,7 @@
 4. - [x] 可复用性和组合
 4. - [x] 生命周期详解
 5. - [x] api 一览
-5. - [ ] vue-cli
+5. - [x] vue-cli
 6. - [ ] vue-router
 7. - [ ] vuex
 8. - [ ] MVVM
@@ -24,6 +24,9 @@
 
 5.15 -- [生命周期详解](./vue/生命周期.md)
 
+5.15 -- [api 一览](./vue/api一览.md)
+
+5.16 -- [vue-cli](./vue/vue-cli.md)
 
 
 
