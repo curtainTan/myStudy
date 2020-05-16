@@ -53,6 +53,7 @@ import(/* webpackPrefetch: true */ './someAsyncComponent.vue')
 ```
 
 **注意：** 当应用很大，并且有很多 异步chunk 时，可以关掉 `prefetch`，手动 添加预加载代码块
+
 ---
 
 **处理静态资源**

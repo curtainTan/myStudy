@@ -8,7 +8,7 @@
 4. - [x] 生命周期详解
 5. - [x] api 一览
 5. - [x] vue-cli
-6. - [ ] vue-router
+6. - [x] vue-router
 7. - [ ] vuex
 8. - [ ] MVVM
 9. - [ ] vue 零散源码分析
@@ -28,5 +28,5 @@
 
 5.16 -- [vue-cli](./vue/vue-cli.md)
 
-
+5.16 -- [vue-router](./vue/vue-router.md)
 
