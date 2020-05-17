@@ -9,7 +9,7 @@
 5. - [x] api 一览
 5. - [x] vue-cli
 6. - [x] vue-router
-7. - [ ] vuex
+7. - [x] vuex
 8. - [ ] vue 与 ts
 9. - [ ] MVVM
 10. - [ ] vue 零散源码分析
@@ -32,6 +32,8 @@
 
 5.16 -- [vue-router](./vue/vue-router.md)
 
+5.17 -- [vuex](./vue/vuex.md)
+
 
 # 原生微信小程序学习计划
 
@@ -40,15 +42,6 @@
 1. -[ ] api
 1. -[ ] 生命周期
 1. -[ ] 自定义组件
-
-
-
-
-# node.js 原生库学习计划
-
-
-
-
 
 
 
