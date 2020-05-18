@@ -10,7 +10,7 @@
 5. - [x] vue-cli
 6. - [x] vue-router
 7. - [x] vuex
-8. - [ ] vue 与 ts
+8. - [x] vue 与 ts
 9. - [ ] MVVM
 10. - [ ] vue 零散源码分析
 
@@ -33,6 +33,8 @@
 5.16 -- [vue-router](./vue/vue-router.md)
 
 5.17 -- [vuex](./vue/vuex.md)
+
+5.17 -- [vue 与 ts](./vue/vue-property-decorator.md)
 
 
 # 原生微信小程序学习计划
