@@ -1,20 +1,17 @@
-
 # vue 学习计划
 
 1. - [x] vue 基础知识
 2. - [x] vue 模板语法(组件)
 3. - [x] vue 过渡和动画
 4. - [x] 可复用性和组合
-4. - [x] 生命周期详解
-5. - [x] api 一览
-5. - [x] vue-cli
-6. - [x] vue-router
-7. - [x] vuex
-8. - [x] vue 与 ts
-9. - [ ] MVVM
-10. - [ ] vue 零散源码分析
-
-
+5. - [x] 生命周期详解
+6. - [x] api 一览
+7. - [x] vue-cli
+8. - [x] vue-router
+9. - [x] vuex
+10. - [x] vue 与 ts
+11. - [ ] MVVM
+12. - [ ] vue 零散源码分析
 
 5.13 -- [vue 基础知识](./vue/基础知识.md)
 
@@ -36,7 +33,6 @@
 
 5.17 -- [vue 与 ts](./vue/vue-property-decorator.md)
 
-
 # 原生微信小程序学习计划
 
 1. -[ ] 框架
@@ -45,13 +41,6 @@
 1. -[ ] 生命周期
 1. -[ ] 自定义组件
 
+# egg.js
 
-
-
-
-
-
-
-
-
-
+5.12 -- [sequelize](./sequelize.md)
