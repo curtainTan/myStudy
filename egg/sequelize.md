@@ -174,6 +174,50 @@ User.init(
 );
 ```
 
+在 define 中，第二个参数的配置：
+
+```js
+class Bar extends Model {}
+Bar.init({ /* bla */ }, {
+  // 模型名。本模型将以该名称存储在`sequelize.models`中。
+  // 默认为类的名称，即在这种情况下为`Bar`。 这将控制自动生成的`foreignKey`的名称和关联命名
+  modelName: 'bar',
+
+  // 不要添加时间戳属性 (updatedAt, createdAt)
+  timestamps: false,
+
+  // 不实际删除数据库记录，而是设置一个新 deletedAt 属性，其值为当前日期
+  // `paranoid` 仅在 `timestamps` 启用时可用
+  paranoid: true,
+
+  // 自动设置字段为蛇型命名规则
+  // 不会覆盖已定义的字段选项属性
+  underscored: true,
+
+  // 禁止修改表名
+  // 默认情况下，sequelize 会自动将所有传递的模型名称转换为复数形式。 如果不想这样做，请设置以下内容
+  freezeTableName: true,
+
+  // 定义表名
+  tableName: 'my_very_custom_table_name',
+
+  // 启用乐观锁定。启用后，sequelize将向模型添加版本计数属性，并在保存旧实例时引发 `OptimisticLockingError` 错误。
+  // 设置为`true`或使用要启用的属性名称的字符串。
+  version: true,
+
+  // Sequelize 实例
+  sequelize,
+
+  // 设置 get 的方法
+  getterMethods: {
+    fullname( val ){
+      return this.firstname + " " + this.lastname
+    }
+  }
+})
+```
+
+
 ## migrations 中 queryInterface 迁移文件的编写
 
 ```js
@@ -269,3 +313,11 @@ module.exports = (app) => {
 ```
 
 [egg-sequelize 文章末尾的案例](https://www.npmjs.com/package/egg-sequelize)
+
+## 多对多
+
+[在EggJS中使用Sequelize做联表查询](https://www.jianshu.com/p/078087c69b77)
+
+[egg sequelize 实践](https://juejin.im/post/5c2db28de51d453529627ef4)
+
+

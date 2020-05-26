@@ -47,11 +47,6 @@
 
 5.23 -- [egg](./egg/egg.md)
 
-# eslint 配置大全
-
-1. - [ ] 查看一遍 Eslint 配置文件
-2. - [ ] prettier 配置文件说明
-
 # git
 
 - [ ] 整理常用 git 命令
